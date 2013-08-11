@@ -1,7 +1,20 @@
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf import settings
-from oscar.app import application
+
+# overiding the promotion app:
+# 1  The oscar Shop Class has apps. one of them is promotions_app.
+# 2. subclass a promotions class:
+#    from oscar.apps.promotions.app import PromotionsApplication
+#    class MyPromotionsApplication( PromotionsApplication ): ...
+#    myPromotionsApp = MyPromotionsApplication()
+# 3. subclass the Shop, and override the promotions_app:
+#    from oscar.app import Shop
+#    class BaseApplication( Shop ):
+#       promotions_app = myPromotionsApp
+# 4. setting file: INSTALLED_APP + get_core_apps(['myshop.apps.promotions'])
+from myshop.app import application
+
 
 # Uncomment the next two lines to enable the admin:
 # from django.contrib import admin

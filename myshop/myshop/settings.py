@@ -159,7 +159,7 @@ INSTALLED_APPS = [
 
     'south',
     'compressor',
-] + get_core_apps()
+] + get_core_apps(['myshop.apps.promotions'])
 
 AUTHENTICATION_BACKENDS = (
     'oscar.apps.customer.auth_backends.Emailbackend',
